@@ -112,6 +112,11 @@ textarea {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.checkbox label {
+  display: inline-block;
+  margin: 0;
+  line-height: 1.2;
+}
 
 button[type="submit"] {
   background-color: var(--medGreen);
