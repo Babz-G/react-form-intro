@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -7,24 +14,30 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
 :root {
   --white: #ffffff;
   --ltGreen: #e0f2e7;
   --medGreen: #0a7e69;
   --drkGreen: #085a4d;
   --gray: #cccccc;
+  --greenGray: #4f5c60;
   --black: #000000;
   --font: "Roboto", sans-serif;
 }
+
 body {
   background-color: var(--ltGreen);
   font-family: var(--font);
   margin: 0;
   padding: 0;
 }
+
 h1 {
   font-size: 1.7rem;
+  color: var(--greenGray);
 }
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -36,27 +49,31 @@ form {
   background-color: var(--white);
   padding: 40px;
   border-radius: 10px;
-  width: 800px;
+  width: 600px;
 }
+
 .names {
   display: flex;
   gap: 15px;
 }
-.names label {
-  display: block;
-  /* margin-bottom: 5px; */
-}
 .names div {
   width: 50%;
 }
+
 input[type="text"],
 input[type="email"] {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--gray);
   border-radius: 5px;
-  /* min-width: 250px; */
 }
+
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
 .all-radios {
   display: flex;
   gap: 10px;
@@ -64,25 +81,21 @@ input[type="email"] {
 }
 
 .single-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   border: 1px solid var(--gray);
   border-radius: 5px;
   padding: 6px;
   flex: 1;
   cursor: pointer;
 }
+
 .single-radio label {
-  display: inline;
-  margin: 0;
+  color: var(--greenGray);
+  letter-spacing: 0.3px;
 }
 
-.single-radio input[type="radio"] {
-  margin-right: 10px;
-}
-label {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 8px;
-}
 textarea {
   width: 100%;
   padding: 6px;
@@ -91,6 +104,7 @@ textarea {
   min-height: 100px;
   font-family: var(--font);
 }
+
 .checkbox {
   display: flex;
   align-items: center;
@@ -99,10 +113,6 @@ textarea {
   margin-top: 20px;
 }
 
-.checkbox label {
-  display: inline;
-  margin: 0;
-}
 button[type="submit"] {
   background-color: var(--medGreen);
   color: var(--white);

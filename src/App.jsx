@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./App.css";
 
 function App() {
@@ -14,18 +13,16 @@ function App() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(name, value);
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    //prevFromData allows us to make a copy of formData, and then add new stuff
-    // setFormData(newData) <- old way
-  }
-  function handleCheckboxChange(e) {
-    const { name, checked } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: checked }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleCheckboxChange(e) {
+    const { name, checked } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: checked }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
     console.log(formData);
     setFormData({
       firstName: "",
@@ -34,18 +31,14 @@ function App() {
       queryType: "",
       message: "",
       consent: false,
-    }); //resets the form to its initial state so it is ready for the next user
+    });
   }
-  //form that catures data from the user - name, email phone
-  //create a state variable to store the form data, which will be an object
-  //handlechange function that will be boilerplate code
-  //handleSubmit for the submit button
-  //some JSX where we will create/render the form for the user to see
 
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
         <h1>Contact Us</h1>
+
         <div className="names">
           <div>
             <label htmlFor="firstName">First Name *</label>
@@ -72,7 +65,7 @@ function App() {
           </div>
         </div>
 
-        <label htmlFor="email">Email Addres *</label>
+        <label htmlFor="email">Email Address *</label>
         <input
           type="email"
           name="email"
@@ -82,9 +75,9 @@ function App() {
           required
         />
 
-        <label>Query Type *</label>
+        <label className="radio-label">Query Type *</label>
         <div className="all-radios">
-          <div className="single-radio">
+          <label className="single-radio">
             <input
               type="radio"
               name="queryType"
@@ -93,10 +86,10 @@ function App() {
               onChange={handleChange}
               required
             />
-            <label>General Enquiry</label>
-          </div>
+            General Enquiry
+          </label>
 
-          <div className="single-radio">
+          <label className="single-radio">
             <input
               type="radio"
               name="queryType"
@@ -105,8 +98,8 @@ function App() {
               onChange={handleChange}
               required
             />
-            <label>Support Request</label>
-          </div>
+            Support Request
+          </label>
         </div>
 
         <label htmlFor="message">Message *</label>
@@ -122,12 +115,16 @@ function App() {
           <input
             type="checkbox"
             name="consent"
+            id="consent"
             checked={formData.consent}
             onChange={handleCheckboxChange}
             required
           />
-          <label>I consent to being contacted by the team *</label>
+          <label htmlFor="consent">
+            I consent to being contacted by the team *
+          </label>
         </div>
+
         <button type="submit">Submit</button>
       </form>
     </div>
