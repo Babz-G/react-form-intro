@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+:root {
+  --white: #ffffff;
+  --ltGreen: #e0f2e7;
+  --medGreen: #0a7e69;
+  --drkGreen: #085a4d;
+  --gray: #cccccc;
+  --black: #000000;
+  --font: "Roboto", sans-serif;
+}
+body {
+  background-color: var(--ltGreen);
+  font-family: var(--font);
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 1.7rem;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 10px;
+  width: 800px;
+}
+.names {
+  display: flex;
+  gap: 15px;
+}
+.names label {
+  display: block;
+  /* margin-bottom: 5px; */
+}
+.names div {
+  width: 50%;
+}
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  /* min-width: 250px; */
+}
+.all-radios {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.single-radio {
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 6px;
+  flex: 1;
+  cursor: pointer;
+}
+.single-radio label {
+  display: inline;
+  margin: 0;
+}
+
+.single-radio input[type="radio"] {
+  margin-right: 10px;
+}
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  min-height: 100px;
+  font-family: var(--font);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.checkbox label {
+  display: inline;
+  margin: 0;
+}
+button[type="submit"] {
+  background-color: var(--medGreen);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--drkGreen);
+}
